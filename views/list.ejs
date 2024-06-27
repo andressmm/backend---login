@@ -1,0 +1,74 @@
+<%- include('parcials/header')%>
+<div class="body__container">
+    
+<div class="event__container">
+    <% eventos.forEach(evento => { %>
+
+        <div class="event">
+         
+            <h4 class="nombre"><%= evento.nombre_evento %></h4>
+            <h4 class="fecha">Fecha:     <span><%= evento.fecha_evento %></span>
+            </h4>
+
+            <h4 class="tipo">Tipo de evento: <span><%= evento.tipo_evento %></span></h4>
+            <hr>
+
+ <!-- comienza el grid de datos-->
+
+ <div class="table-grid">
+    <!-- Headers -->
+    <div class="header-grid">Apellido</div>
+    <div class="header-grid">Nombre</div>
+    <div class="header-grid">Ciudad</div>
+    <div class="header-grid">Acción</div>
+
+    <!-- Data Rows -->
+    <% participantes.filter(participante => participante.id_evento === evento.id_evento).forEach(function(participante) { %>
+    <div class="row-grid"><%= participante.apellido %></div>
+        <div class="row-grid"><%= participante.nombre %></div>
+        <div class="row-grid"><%= participante.ciudad %></div>
+        <div class="action-buttons-grid">
+            <form method="POST" action="/edit">
+                <button class="buttons-participants edit">
+                <span class="material-symbols-outlined actions__edit">edit_note</span>
+                <input type="hidden" name="idModificar" value="<%= participante.id %>">
+                </button>
+            </form>
+            <form method="POST" action="/list?_method=DELETE">
+                <button class="buttons-participants delete">
+                <span class="material-symbols-outlined actions__delete">delete</span>
+                </button>
+                <input type="hidden" name="idEliminar" value="<%= participante.id %>">
+            </form>
+        </form>
+        </div>
+    <% }); %>
+    <div class="add-participant-grid">
+        <a href="/addPart/<%= evento.id_evento %>">
+        <span class="material-symbols-outlined actions__add">person_add</span>
+            </a>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+ <!-- finaliza el grid de datos-->
+
+            
+    </div>        
+    <% }); %>
+
+
+</div>
+</div>
+<%- include('parcials/footer')%>
+

@@ -1,0 +1,20 @@
+<%- include('parcials/header')%>
+<div class="body__container">
+
+<script>
+    const log = localStorage.getItem('usuario');
+    console.log(log);
+    if (!log) {
+
+    
+        document.write(`<%- include('parcials/login')%>`);}
+
+        else {document.write(`<%- include('parcials/portada')%>`);}
+</script>
+
+
+</div>
+
+<%- include('parcials/footer')%>
+
+

@@ -1,0 +1,45 @@
+    <%- include('parcials/header')%>
+    <div class="body__container">
+
+    <div class="event__container">
+        <% eventos.forEach(evento => { %>
+
+            <div class="event">
+                <form method="POST" action="/modificar">
+                    <button class="buttons edit">
+                    <span class="material-symbols-outlined actions__edit">edit_note</span>
+                    <input type="hidden" name="idModificar" value="<%= evento.id_evento %>">
+                </button>
+                </form>
+            <form method="POST" action="/events?_method=DELETE">
+                <button class="buttons delete">
+                    <span class="material-symbols-outlined actions__delete">delete</span>
+                </button>
+                <input type="hidden" name="idEliminar" value="<%= evento.id_evento %>">
+
+            </form>
+
+            <form method="POST" action="/single">
+                <button class="buttons search">
+                    <span class="material-symbols-outlined actions__search">search</span>
+                </button>
+                <input type="hidden" name="idVer" value="<%= evento.id_evento %>">
+
+            </form>
+
+                <h4 class="nombre"><%= evento.nombre_evento %></h4>
+                <h4 class="fecha">Fecha:     <span><%= evento.fecha_evento %></span>
+                </h4>
+
+                <h4 class="tipo">Tipo de evento: <span><%= evento.tipo_evento %></span></h4>
+                <% const participantesEvento = participantes.filter(participante => participante.id_evento === evento.id_evento); %>
+                <h4 class="tipo">Cantidad de participantes: <span><%= participantesEvento.length %></span></h4>
+
+        </div>        
+        <% }); %>
+
+
+    </div>
+    </div>
+    <%- include('parcials/footer')%>
+

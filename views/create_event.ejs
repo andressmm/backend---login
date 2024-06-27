@@ -1,0 +1,29 @@
+<%- include('parcials/header')%>
+
+<div class="body__container">
+    <div class="login__container">
+        <div class="login">
+        <h2>CREAR EVENTO</h2>
+        <form id="loginForm" action="/events" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="input-container">
+                <label for="nombre_evento">Evento:</label>
+                <input type="text" id="nombre_evento" name="nombre_evento" required>
+            </div>
+            <div class="input-container">
+                <label for="tipo_evento">Tipo de evento:</label>
+                <input type="text" id="tipo_evento" name="tipo_evento" required>
+            </div>
+            <div class="input-container">
+                <label for="fecha_evento">Fecha:</label>
+                <input type="date" id="tipo_evento" name="fecha_evento" required>
+            </div>
+      
+            <button type="submit">Guardar cambios</button>
+        </form>
+</div>
+</div>
+
+</div>
+
+<%- include('parcials/footer')%>
+

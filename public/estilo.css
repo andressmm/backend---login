@@ -1,0 +1,330 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+    text-decoration: none;
+}
+
+:root{
+    --fondo:color-mix(in srgb,#f62 70%, #fff);
+    --color-2:#f62;
+    --sidebar:#fff;
+
+}
+
+body{
+    background: var(--fondo);
+    display: flex;
+    align-items: center;
+    height: 100vh; 
+
+}
+
+/* HEADER  */
+/* HEADER  */
+/* HEADER  */
+header{
+    background: var(--sidebar) ;
+    display:flex;
+    color:var(--font);
+    justify-content: space-between; 
+    align-items: center; 
+    color:var(--fondo);
+    position:fixed;
+    z-index:100;
+    width: 100vw;
+    top:0;
+
+}
+
+.botones__header{
+    flex-grow: 3;
+}
+
+.botones__header{
+    display: flex;
+    flex-direction: row; 
+    list-style: none;
+
+}
+
+.li__item{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding:10px;
+    color:var(--fondo);
+}
+
+.li__item span{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color:inherit
+
+}
+
+.li__item a{
+    font-size:1rem;
+    padding:0 10px;
+    color:inherit;
+}
+
+.li__item:hover{
+    height: 100%;
+    background: var(--fondo);
+    color:var(--sidebar);
+
+}
+
+.nav__text{
+    display:flex;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.add__event{
+    text-shadow: 1px 1px 0px #9999;
+    background: var(--fondo);
+    color:black; 
+}
+
+
+.add__event:hover{
+    background: var(--fondo);
+}
+h1{
+    font-size:1.3rem;
+    flex-grow: 1;
+    text-align: center;
+    padding:0 10px;
+
+}    
+
+h3{
+    font-size:1rem;
+    font-weight: 300;
+    flex-grow: 1;
+    text-align: left;
+    padding:0 10px;
+    color:black;
+
+}
+
+/* fin HEADER  */
+/* fin HEADER  */
+/* fin HEADER  */
+
+/* CONTAINER BODY */
+/* CONTAINER BODY */
+/* CONTAINER BODY */
+.body__container{
+
+    width: 100%;
+
+}
+
+
+.welcome{
+    font-size:2rem;
+    padding:10px 0;
+}
+
+.welcome_text{
+    padding:10px 0;
+}
+/* FIN CONTAINER BODY */
+/* FIN CONTAINER BODY */
+/* FIN CONTAINER BODY */
+
+
+
+/*ESTILOS PANTALLA DE LOGIN */
+/*ESTILOS PANTALLA DE LOGIN */
+/*ESTILOS PANTALLA DE LOGIN */
+.login__container{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+.login {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: clamp(350px,40%,500px);
+}
+
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color:var(--fondo)
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container {
+    margin-bottom: 15px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-right: 15px; 
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width:clamp(70px,100%,300px);
+}
+
+button {
+    background-color: var(--fondo);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    width:clamp(70px,100%,300px);
+    align-self: center; /* Centra el botón horizontalmente */
+
+}
+
+button:hover {
+    background-color: var(--color-2);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+/*fin ESTILOS PANTALLA DE LOGIN */
+/*fin ESTILOS PANTALLA DE LOGIN */
+/*fin ESTILOS PANTALLA DE LOGIN */
+
+
+/* estilos EVENTS */
+/* estilos EVENTS */
+/* estilos EVENTS */
+
+
+.event__container{
+display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80vh;
+}
+.event{
+    border:1px solid var(--color-2);
+    border-radius:5px;
+    background-color: var(--sidebar);
+    width: clamp(500px, 50%, 700px);
+    margin:2px;
+    padding:15px 5px;
+    box-shadow: 1px 1px 2px #0007;
+    text-align: center;
+    position:relative;
+}
+
+form,h4 {
+    font-weight: 500;
+}
+
+.nombre{
+    font-size:2rem;
+    color:var(--fondo)
+}
+
+.fecha,.tipo{
+    color:#999;
+}
+.fecha>span, .tipo>span{
+    color:hsl(0, 0%, 0%);
+}
+
+
+.buttons{
+    position: absolute;
+    left:5px;
+    color:var(--fondo);
+    user-select: none;    
+    width: fit-content;
+    background: transparent;
+
+}
+.delete{
+    bottom:35px;
+}
+
+.search{
+    bottom:7px;
+}
+
+
+.buttons:hover {
+    background-color: transparent; /* Cambiar a transparente al pasar */
+    color:#3339;
+}
+
+
+/* GRID PARTICIPATNES */
+
+.table-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    align-items: center;
+}
+
+.table-grid div {
+    padding: 5px;
+}
+
+.header-grid {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.action-buttons-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.buttons-participants, .actions__add,.buttons-participants:hover{
+    color:var(--fondo);
+    user-select: none;    
+    background: transparent;
+
+}
+
+
+
+.add-participant-grid {
+    grid-column: span 4;
+    text-align: center;
+    padding: 10px;
+    /*background: #e7e7e7;*/
+    border: 1px solid #ddd;
+}
+

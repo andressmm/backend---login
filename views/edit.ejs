@@ -1,0 +1,31 @@
+<%- include('parcials/header')%>
+<div class="body__container">
+
+
+    <div class="login__container">
+        <div class="login">
+    <form method="POST" action="/edit?_method=PATCH">
+        <h2>MODIFICAR PARTICIPANTE</h2>
+            <div class="input-container">
+                <label for="nombre_evento">Nombre:</label>
+                <input type="text" id="nombre_evento" name="nombre" required value="<%= registro.nombre %>">
+            </div>
+            <div class="input-container">
+                <label for="tipo_evento">Apellido</label>
+                <input type="text" id="tipo_evento" name="apellido" required value="<%= registro.apellido %>">
+            </div>
+            <div class="input-container">
+                <label for="fecha_evento">CIUDAD:</label>
+                <input type="text" id="tipo_evento" name="ciudad" required value="<%= registro.ciudad %>">
+            </div>
+            <input type="hidden" name="idActualizar" value="<%= registro.id %>">
+      
+            <button type="submit">Guardar cambios</button>
+        </form>
+            </div>
+        </div>
+
+</div>
+
+<%- include('parcials/footer')%>
+
