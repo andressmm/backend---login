@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DE INSCRIPCIONES</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<script>
+    localStorage.clear();
+
+</script>
+<div class="body__container">
+<div class="login__container">
+    <div class="login close1">
+        <h2>SESION CERRADA</h2>
+        <span class="material-symbols-outlined closed">waving_hand</span>
+        <h3 class="close">HASTA PRONTO!</h3>
+
+    <h2>Iniciar Sesión</h2>
+
+       <!-- <form id="loginForm" method="post" action='login2.html' enctype="application/x-www-form-urlencoded">-->
+            <div class="input-container">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="user" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="loginForm">
+            <button type="submit" onclick="login();">Iniciar sesión</button>
+        </div>
+        <!--</form>-->
+    </div>
+</div>
+</div>
+<script src="login.js"></script>

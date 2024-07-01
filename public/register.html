@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DE INSCRIPCIONES</title>
+    <link rel="stylesheet" href="./estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+
+<div class="body__container">
+<div class="login__container">
+    <div class="login">
+        <h2>REGISTRO DE USUARIO</h2>
+        <form id="loginForm" action="/login/registro" method="post" enctype="application/x-www-form-urlencoded">
+            <div class="input-container">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="user" required>
+            </div>
+            <div class="input-container">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Registrarme</button>
+        </form><br><hr><br>
+    <div class="form_bt">  
+            <button onclick="window.location.href='login/ingreso';">Iniciar sesion</button>
+       </div>
+    </div>
+</div>
+</div>

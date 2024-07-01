@@ -1,15 +1,47 @@
+<script>
+    async function fetchData() {
+        const token = localStorage.getItem('jwt-token');
+
+        
+            const response = await fetch('/main', {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+                console.log(response)
+                
+        }
+                /*
+            if (!response.ok) {
+                if (response.status === 401) {
+                    console.error('No autorizado: el token no es válido.');
+                    // Redirigir al inicio de sesión o mostrar un mensaje
+                } else if (response.status === 403) {
+                    console.error('Prohibido: acceso denegado.');
+                    // Manejar el acceso denegado
+                } else {
+                    console.error('Error desconocido:', response.status);
+                }
+            } else {
+                const data = await response.json();
+                console.log(data);
+                // Procesar los datos recibidos
+            }
+        } catch (error) {
+            console.error('Error al realizar la solicitud:', error);
+        }
+    }
+
+    fetchData();*/
+</script>
+
 <%- include('parcials/header')%>
 <div class="body__container">
 
-<script>
-    const log = localStorage.getItem('usuario');
-    console.log(log);
-    if (!log) {
-
-    
-        document.write(`<%- include('parcials/login')%>`);}
-
-        else {document.write(`<%- include('parcials/portada')%>`);}
+<%- include('parcials/portada')%>
 </script>
 
 

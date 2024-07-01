@@ -162,7 +162,27 @@ h3{
     color:var(--fondo)
 }
 
-form {
+.close1{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.close{
+    text-align: center;
+    margin-bottom:15px;
+    font-weight: 700;
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+}
+
+.closed{
+    text-align: center;
+    justify-content: center;
+}
+
+
+form,.form_bt,.loginForm {
     display: flex;
     flex-direction: column;
 }
@@ -258,7 +278,7 @@ form,h4 {
 }
 
 
-.buttons{
+.buttons,.actions__search{
     position: absolute;
     left:5px;
     color:var(--fondo);
@@ -271,12 +291,13 @@ form,h4 {
     bottom:35px;
 }
 
-.search{
-    bottom:7px;
+.actions__search{
+    left:17px;
+    bottom:16px;
 }
 
 
-.buttons:hover {
+.buttons:hover,.actions__search:hover {
     background-color: transparent; /* Cambiar a transparente al pasar */
     color:#3339;
 }

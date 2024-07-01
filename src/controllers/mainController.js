@@ -1,37 +1,23 @@
 const { conn }=require('../db/conexion')
 
 module.exports={
-// LOGIN DE USUARIO 
-loginUsr: async (req, res) => {
-        const { username, password } = req.body;
-    
-        console.log('Datos recibidos:', username, password);
-        const sql = 'SELECT * FROM users WHERE user = ? AND pass = ?';
-    
-        try {
-          const [rows] = await conn.query(sql, [username, password]);
-    
-          if (rows.length > 0) {
-            // Usuario encontrado, enviar respuesta exitosa
-            console.log('Autenticación exitosa para el usuario:', username);
-            res.status(200).json({ message: username });
-        } else {
-            // Usuario no encontrado o credenciales inválidas
-            console.log('Credenciales inválidas para el usuario:', username);
-            res.status(401).json({ message: 'error' });
-          }
-        } catch (error) {
-          console.error('Error al conectar bbdd:', error);
-          res.status(500).json({ message: 'error' });
-        }
-      },
 
 // LISTADO DE EVENTOS
+
+
       getEvent: async (req, res) => {
         try {
             const [participantes] = await conn.query(`SELECT * FROM participantes`);
             const [eventos] = await conn.query(`SELECT * FROM eventos order by fecha_evento ASC`);
-            res.render('events', { title: 'LISTADO DE EVENTOS', eventos,participantes });
+   
+            const consultas = {
+                participantes: participantes,
+                eventos: eventos
+            };
+   
+            res.json(consultas)
+            
+            //res.render('events', { title: 'LISTADO DE EVENTOS', eventos,participantes });
             
         } catch (error) {
             console.error('Error al obtener eventos:', error);
@@ -53,7 +39,7 @@ loginUsr: async (req, res) => {
         const sql=`INSERT INTO eventos (nombre_evento,tipo_evento,fecha_evento) VALUES (?,?,?);`
         const creado=await conn.query(sql, [enMayus.nombre_evento,enMayus.tipo_evento,req.body.fecha_evento] )
         console.log(creado)
-        res.redirect('/events');
+        res.redirect('/main/eventos');
 
     
     },
@@ -77,11 +63,20 @@ loginUsr: async (req, res) => {
     // ver un evento individual
     getEv: async (req, res) => {
         try {
-
+            const id = req.params.id
+            console.log ("id recibido",id)
+      
             const [eventos] = await conn.query(`SELECT * FROM eventos WHERE id_evento=?`,
-                req.body.idVer);
+                [id]);
             const [participantes] = await conn.query(`SELECT * FROM participantes`);
-            res.render('single', { title: 'LISTADO DE PARTICIPANTES', eventos,participantes });
+            const consultas = {
+                participantes: participantes,
+                eventos: eventos
+            };
+            res.json(consultas)
+            
+            
+            //res.render('single', { title: 'LISTADO DE PARTICIPANTES', eventos,participantes });
 
         } catch (error) {
             console.error('Error al obtener eventos / participantes', error);
@@ -106,14 +101,15 @@ loginUsr: async (req, res) => {
         
         const modificado=await conn.query(sql,[enMayus.nombre_evento,enMayus.tipo_evento,enMayus.fecha_evento,idActualizar])
         console.log(modificado)
-        res.redirect('/events')
+        res.redirect('/main/eventos')
     },
 
 // eliminar evento
 
     eliminar: async (req,res)=>{
+        console.log("se ingreso a eliminar");
         const eliminado=await conn.query(`DELETE FROM eventos WHERE id_evento=?`,req.body.idEliminar)
-        res.redirect('/events');
+        res.redirect('/main/eventos');
 
     },
 
@@ -158,7 +154,7 @@ actualizarpart: async (req,res)=>{
     };
     
     const modificado=await conn.query(sql,[enMayus.nombre,enMayus.apellido,enMayus.ciudad,idActualizar])
-    res.redirect('/list')
+    res.redirect('/main/list')
 },
 
 
@@ -166,10 +162,15 @@ actualizarpart: async (req,res)=>{
 
 delete: async (req,res)=>{
     const eliminado=await conn.query(`DELETE FROM participantes WHERE id=?`,req.body.idEliminar)
-    res.redirect('/list');
+    res.redirect('/main/list');
 
 },
 
+
+
+crearEvento: async (req,res)=>{
+    
+},
 
 // crear nuevo participante 
 crearParticipante: async (req,res)=>{
@@ -184,7 +185,7 @@ crearParticipante: async (req,res)=>{
     const sql=`INSERT INTO participantes (nombre,apellido,ciudad,id_evento) VALUES (?,?,?,?);`
     const creado=await conn.query(sql, [enMayus.nombre,enMayus.apellido,enMayus.ciudad,idEvento])
     console.log(creado)
-    res.redirect('/list');
+    res.redirect('/main/list');
 
 
 },

@@ -22,14 +22,14 @@
             <ul class="botones__header">
                 <li class="li__item">
 
-                    <a href="/">    
+                    <a href="/main">    
                     <span class="material-symbols-outlined">home</span>
                     HOME
                     </a>
                 </li>
 
                 <li class="li__item">    
-                    <a href="/events" class="no_clic">
+                    <a href="/main/eventos" class="no_clic">
                     <span class="material-symbols-outlined">calendar_month</span>
                     EVENTOS
                 </a>
@@ -38,7 +38,7 @@
 
                
             <li class="li__item">
-                <a href="/addEvents" class="new no_clic">
+                <a href="/main/crearEv" class="new no_clic">
                     <span class="material-symbols-outlined">library_add</span>
                     AGREGAR EVENTO
                     </a>
@@ -47,7 +47,7 @@
          
             
                 <li class="li__item">
-                    <a href="/list" class="no_clic">
+                    <a href="/main/list" class="no_clic">
                         <span class="material-symbols-outlined">patient_list</span>
                         PARTICIPANTES
                     </a>
@@ -55,10 +55,10 @@
                 <li class="li__item salir">
                 </li>
                 <script>
-                    let ls=localStorage.getItem('usuario');
+                    let ls=localStorage.getItem('jwt-token');
                     if (ls) { let barra=document.querySelector('.salir');
                     barra.innerHTML=`
-                    <a href="/" class="salir">
+                    <a href="/main/close" class="salir">
                     <span class="material-symbols-outlined">power_settings_new</span>
                     
                         CERRAR SESION

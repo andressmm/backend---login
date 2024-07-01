@@ -28,13 +28,13 @@
         <div class="row-grid"><%= participante.nombre %></div>
         <div class="row-grid"><%= participante.ciudad %></div>
         <div class="action-buttons-grid">
-            <form method="POST" action="/edit">
+            <form method="POST" action="/main/edit">
                 <button class="buttons-participants edit">
                 <span class="material-symbols-outlined actions__edit">edit_note</span>
                 <input type="hidden" name="idModificar" value="<%= participante.id %>">
                 </button>
             </form>
-            <form method="POST" action="/list?_method=DELETE">
+            <form method="POST" action="/main/list?_method=DELETE">
                 <button class="buttons-participants delete">
                 <span class="material-symbols-outlined actions__delete">delete</span>
                 </button>
@@ -44,7 +44,7 @@
         </div>
     <% }); %>
     <div class="add-participant-grid">
-        <a href="/addPart/<%= evento.id_evento %>">
+        <a href="/main/addPart/<%= evento.id_evento %>">
         <span class="material-symbols-outlined actions__add">person_add</span>
             </a>
 

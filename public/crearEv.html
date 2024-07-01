@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRO DE INSCRIPCIONES</title>
+    <link rel="stylesheet" href="/estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+</head>
+<script>
+   // let lst=localStorage.getItem('usuario');
+</script>
+
+<body>
+    <header>
+            <ul class="botones__header">
+                <li class="li__item">
+
+                    <a href="/main">    
+                    <span class="material-symbols-outlined">home</span>
+                    HOME
+                    </a>
+                </li>
+
+                <li class="li__item">    
+                    <a href="/main/eventos" class="no_clic">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    EVENTOS
+                </a>
+            </li>
+             
+
+               
+            <li class="li__item">
+                <a href="/main/crearEv" class="new no_clic">
+                    <span class="material-symbols-outlined">library_add</span>
+                    AGREGAR EVENTO
+                    </a>
+                </li>
+               
+         
+            
+                <li class="li__item">
+                    <a href="/main/list" class="no_clic">
+                        <span class="material-symbols-outlined">patient_list</span>
+                        PARTICIPANTES
+                    </a>
+                </li>
+                <li class="li__item salir">
+                </li>
+                <script>
+                    let ls=localStorage.getItem('jwt-token');
+                    if (ls) { let barra=document.querySelector('.salir');
+                    barra.innerHTML=`
+                    <a href="/main/close" class="salir">
+                    <span class="material-symbols-outlined">power_settings_new</span>
+                    
+                        CERRAR SESION
+                    </a>
+                `;}
+                </script>
+
+            </ul>
+        <div class="nav__text">    
+        <h1>ADMINISTRACION DE EVENTOS</h1>   
+        </div>
+    </header>
+
+    <div class="body__container">
+
+        <div class="login__container">
+            <div class="login">
+            <h2>CREAR EVENTO</h2>
+            <form id="loginForm" action="/main/eventos" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="input-container">
+                    <label for="nombre_evento">Evento:</label>
+                    <input type="text" id="nombre_evento" name="nombre_evento" required>
+                </div>
+                <div class="input-container">
+                    <label for="tipo_evento">Tipo de evento:</label>
+                    <input type="text" id="tipo_evento" name="tipo_evento" required>
+                </div>
+                <div class="input-container">
+                    <label for="fecha_evento">Fecha:</label>
+                    <input type="date" id="tipo_evento" name="fecha_evento" required>
+                </div>
+          
+                <button type="submit">Guardar cambios</button>
+            </form>
+    </div>
+    </div>
+    
+	<script src="addEv.js"></script>
