@@ -1,10 +1,10 @@
 const mysql=require('mysql2');
 
 const pool=mysql.createPool({
-    host:'190.228.29.59',
-    user:'natriouruguay',
-    password:'Eduardo/3412',
-    database:'uruguay',
+    host:'localhost',
+    user:'user',
+    password:'passw',
+    database:'mibase',
     port:3306,
     waitForConnections:true,
     connectionLimit:15,
